@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "npx nodemon",
-    "start": "ts-node src/palindrome/index.ts",
+    "start": "ts-node src/ramsoneNote/index.ts",
     "test": "jest --watch"
   },
   "keywords": [],
