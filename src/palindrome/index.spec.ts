@@ -1,4 +1,5 @@
 import { isArrayPalindrome, isPalindrome, ListNode, reverseLinkedList } from "."
+import { isPalindrome as isPal } from "./second"
 
 describe('isArrayPalindrome', () => {
 
@@ -48,5 +49,23 @@ describe('reverseLinkedList', () => {
         const resp = reverseLinkedList(original)
         expect(resp?.val).toBe(3)
         expect(resp!.next!.val).toBe(2)
+    })
+})
+
+
+describe('isPal', () => {
+    it('should blame palindrome', () => {
+        const obj = new ListNode(1, new ListNode(2, new ListNode(1, null)))
+        expect(isPal(obj)).toBe(true)
+    })
+
+    it('should blame palindrome', () => {
+        const obj = new ListNode(1, new ListNode(2, null))
+        expect(isPal(obj)).toBe(false)
+    })
+
+    it('should not accuse palindrome', () => {
+        const obj = new ListNode(1, new ListNode(2, new ListNode(3, null)))
+        expect(isPal(obj)).toBe(false)
     })
 })
