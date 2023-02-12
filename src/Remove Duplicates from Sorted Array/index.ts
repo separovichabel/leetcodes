@@ -3,19 +3,19 @@ export function removeDuplicates(nums: number[]): number {
     let cursorInsert = 0
     let totalLength = nums.length
 
-    const seen: {[string: number]: boolean} = {}
+    let lastElement = -101 // less than the minimum value possible
 
     let curNum: number;
     while (cursor < nums.length) {
         curNum = nums[cursor]
 
-        if (seen[curNum]) {
+        if (lastElement >= curNum) {
             cursor++
             totalLength--
             continue
         }
 
-        seen[curNum] = true
+        lastElement = curNum
         nums[cursorInsert] = curNum
 
         cursorInsert++
