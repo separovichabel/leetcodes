@@ -1,11 +1,11 @@
 package solution
 
 func AddBinary(a string, b string) string {
-	if a < b {
+	if len(a) < len(b) {
 		a, b = b, a
 	}
 
-	temp := make([]rune, len(a))
+	temp := make([]byte, len(a))
 
 	var carring uint8 = 0
 	for aID, bID := len(a)-1, len(b)-1; aID >= 0; {
@@ -19,6 +19,8 @@ func AddBinary(a string, b string) string {
 		}
 
 		switch carring {
+		case 0:
+			temp[aID], carring = '0', 0
 		case 1:
 			temp[aID], carring = '1', 0
 		case 2:
@@ -32,7 +34,7 @@ func AddBinary(a string, b string) string {
 	}
 
 	if carring == 1 {
-		resposta := make([]rune, len(temp)+1)
+		resposta := make([]byte, len(temp)+1)
 		copy(resposta[1:], temp)
 		resposta[0] = '1'
 		return string(resposta)
