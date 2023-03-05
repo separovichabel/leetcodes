@@ -40,7 +40,7 @@ var testCases = []Case{
 	},
 }
 
-func TestIsValid(t *testing.T) {
+func TestAddBinary(t *testing.T) {
 	for _, cas := range testCases {
 
 		output := solution.AddBinary(cas.input[0], cas.input[1])
@@ -52,10 +52,30 @@ func TestIsValid(t *testing.T) {
 	}
 }
 
-func BenchmarkLengthOfLastWord(b *testing.B) {
+func BenchmarkAddBinary(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, cas := range testCases {
 			solution.AddBinary(cas.input[0], cas.input[1])
+		}
+	}
+}
+
+func TestAddBinary2(t *testing.T) {
+	for _, cas := range testCases {
+
+		output := solution.AddBinary2(cas.input[0], cas.input[1])
+
+		if output != cas.expected {
+			t.Errorf("case: %v output %v != %v", cas.input, output, cas.expected)
+			return
+		}
+	}
+}
+
+func BenchmarkAddBinary2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, cas := range testCases {
+			solution.AddBinary2(cas.input[0], cas.input[1])
 		}
 	}
 }
