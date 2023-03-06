@@ -21,7 +21,7 @@ var testCases = []Case{
 	},
 	{
 		input:    "ZY",
-		expected: 901,
+		expected: 701,
 	},
 }
 
