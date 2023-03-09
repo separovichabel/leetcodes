@@ -48,11 +48,10 @@ func LeftRigthDifference2(nums []int) []int {
 		rightSum = rightSum + n
 	}
 
-	for i := range nums {
-		curN := nums[i]
-		rightSum = rightSum - curN
+	for i, cur := range nums {
+		rightSum = rightSum - cur
 		nums[i] = abs(leftSum - rightSum)
-		leftSum = leftSum + curN
+		leftSum = leftSum + cur
 	}
 
 	return nums
